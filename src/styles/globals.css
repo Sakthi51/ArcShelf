@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root, [data-theme="dark"] {
+    --color-bg-primary: #171717;
+    --color-bg-secondary: #212121;
+    --color-bg-tertiary: #2a2a2a;
+    --color-bg-hover: #2f2f2f;
+    --color-bg-active: #3a3a3a;
+    --color-bg-selected: #1d3a5c;
+
+    --color-border-primary: #2e2e2e;
+    --color-border-secondary: #3a3a3a;
+    --color-border-focus: #5c8abd;
+
+    --color-text-primary: #ececec;
+    --color-text-secondary: #b4b4b4;
+    --color-text-tertiary: #7a7a7a;
+    --color-text-inverse: #171717;
+
+    --color-accent: #5c8abd;
+    --color-accent-hover: #7aa3d4;
+    --color-accent-bg: rgba(92, 138, 189, 0.12);
+
+    --color-danger: #ef4444;
+    --color-danger-bg: rgba(239, 68, 68, 0.08);
+    --color-success: #22c55e;
+
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+
+    --shadow-menu: 0 4px 24px rgba(0, 0, 0, 0.25);
+    --shadow-dialog: 0 8px 40px rgba(0, 0, 0, 0.35);
+    --shadow-toast: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+    --sidebar-width: 260px;
+    --item-height: 32px;
+    --folder-indent: 12px;
+    --header-height: 48px;
+  }
+
+  [data-theme="light"] {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f9f9f9;
+    --color-bg-tertiary: #f3f3f3;
+    --color-bg-hover: #ececec;
+    --color-bg-active: #dedede;
+    --color-bg-selected: #e8f0fb;
+
+    --color-border-primary: #e5e5e5;
+    --color-border-secondary: #d4d4d4;
+    --color-border-focus: #3b82f6;
+
+    --color-text-primary: #111111;
+    --color-text-secondary: #555555;
+    --color-text-tertiary: #999999;
+    --color-text-inverse: #ffffff;
+
+    --color-accent: #3b82f6;
+    --color-accent-hover: #2563eb;
+    --color-accent-bg: rgba(59, 130, 246, 0.08);
+
+    --color-danger: #dc2626;
+    --color-danger-bg: rgba(220, 38, 38, 0.06);
+    --color-success: #16a34a;
+
+    --shadow-menu: 0 4px 24px rgba(0, 0, 0, 0.1);
+    --shadow-dialog: 0 8px 40px rgba(0, 0, 0, 0.15);
+    --shadow-toast: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  [data-theme="gray"] {
+    --color-bg-primary: #494a4c;
+    --color-bg-secondary: #545557;
+    --color-bg-tertiary: #5e5f61;
+    --color-bg-hover: #5e5f61;
+    --color-bg-active: #6a6b6d;
+    --color-bg-selected: #3d5a7a;
+
+    --color-border-primary: #5e5f61;
+    --color-border-secondary: #6a6b6d;
+    --color-border-focus: #7ab3e0;
+
+    --color-text-primary: #f0f0f0;
+    --color-text-secondary: #c8c8c8;
+    --color-text-tertiary: #9a9a9a;
+    --color-text-inverse: #494a4c;
+
+    --color-accent: #7ab3e0;
+    --color-accent-hover: #9dc8ea;
+    --color-accent-bg: rgba(122, 179, 224, 0.15);
+
+    --color-danger: #f87171;
+    --color-danger-bg: rgba(248, 113, 113, 0.12);
+    --color-success: #4ade80;
+
+    --shadow-menu: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-dialog: 0 8px 40px rgba(0, 0, 0, 0.4);
+    --shadow-toast: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  #arc-bm-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 2147483640;
+    pointer-events: none;
+  }
+
+  .arc-bm-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 260px;
+    height: 100vh;
+    background: var(--color-bg-primary);
+    display: flex;
+    flex-direction: column;
+    z-index: 2147483640;
+    overflow: hidden;
+    pointer-events: auto;
+    zoom: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    transition: transform 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  /* LEFT position (default) */
+  .arc-bm-left {
+    left: 0;
+    right: auto;
+    border-right: 1px solid var(--color-border-primary);
+    border-left: none;
+    transform: translateX(0);
+  }
+  .arc-bm-left.arc-bm-hidden {
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+
+  /* RIGHT position */
+  .arc-bm-right {
+    left: auto;
+    right: 0;
+    border-left: 1px solid var(--color-border-primary);
+    border-right: none;
+    transform: translateX(0);
+  }
+  .arc-bm-right.arc-bm-hidden {
+    transform: translateX(100%);
+    pointer-events: none;
+  }
+
+  .arc-bm-content {
+    flex: 1 !important;
+    overflow: hidden !important;
+  }
+
+  /* Force all elements inside panel to use our font stack and box model */
+  .arc-bm-panel *,
+  .arc-bm-panel *::before,
+  .arc-bm-panel *::after {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    -webkit-font-smoothing: antialiased !important;
+  }
+
+  /* Scale everything proportionally — industry standard (Slack/Discord/VS Code model) */
+  .arc-bm-panel[data-size="s"] {
+    --text-base: 13px;
+    --text-sm: 12px;
+    --text-xs: 11px;
+    --text-heading: 14px;
+  }
+  .arc-bm-panel[data-size="m"],
+  .arc-bm-panel:not([data-size]) {
+    --text-base: 14px;
+    --text-sm: 13px;
+    --text-xs: 12px;
+    --text-heading: 15px;
+  }
+  .arc-bm-panel[data-size="l"] {
+    --text-base: 15px;
+    --text-sm: 14px;
+    --text-xs: 13px;
+    --text-heading: 16px;
+  }
+  .arc-bm-panel { font-size: var(--text-base, 14px) !important; }
+
+  /* ChatGPT-style search bar */
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\] {
+    background: var(--color-bg-tertiary) !important;
+    border: 1px solid var(--color-border-primary) !important;
+    border-radius: 8px !important;
+    padding: 12px 14px !important;
+    margin: 0 10px 10px !important;
+    gap: 10px !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  }
+
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\]:focus-within {
+    background: var(--color-bg-tertiary) !important;
+    border-color: var(--color-border-secondary) !important;
+    box-shadow: 0 0 0 1px var(--color-border-secondary) !important;
+  }
+
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\]:hover {
+    background: var(--color-bg-tertiary) !important;
+    border-color: var(--color-border-secondary) !important;
+  }
+
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\] input {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    background: transparent !important;
+  }
+
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\] input::placeholder {
+    color: var(--color-text-tertiary) !important;
+    opacity: 0.7 !important;
+  }
+
+  /* Clear button styled like ChatGPT's circular action button */
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\] button {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    background: var(--color-text-primary) !important;
+    color: var(--color-bg-primary) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: opacity 0.15s ease !important;
+    flex-shrink: 0 !important;
+  }
+
+  .arc-bm-panel .flex.items-center.gap-2.mx-2.mb-1\.5.px-3.py-\[10px\] button:hover {
+    opacity: 0.8 !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-primary);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-secondary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
