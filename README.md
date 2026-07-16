@@ -1,8 +1,7 @@
 # ArcShelf
 
-> The missing bookmark experience for Arc Browser.
->
-> A beautifully designed bookmark manager with a native sidebar, lightning-fast search, smooth animations, and keyboard-first workflows.
+The missing bookmark experience for Arc Browser.
+A beautifully designed bookmark manager with a native sidebar, lightning-fast search, smooth animations, and keyboard-first workflows.
 
 ---
 
