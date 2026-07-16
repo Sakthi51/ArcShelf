@@ -55,11 +55,8 @@ chrome://extensions
 
 ```bash
 git clone https://github.com/Sakthi51/ArcShelf.git
-
 cd ArcShelf
-
 npm install
-
 npm run build
 ```
 
@@ -77,16 +74,6 @@ Load the generated **dist** folder as an unpacked extension.
 - Zustand
 - Fuse.js
 - Chrome Manifest V3
-
----
-
-## 🌐 Browser Support
-
-- ✅ Arc Browser
-- ✅ Google Chrome
-- ✅ Brave
-- ✅ Microsoft Edge
-
 ---
 
 ## 📄 License
