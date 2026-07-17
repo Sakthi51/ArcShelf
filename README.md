@@ -22,6 +22,8 @@ A beautifully designed bookmark manager with a native sidebar, lightning-fast se
 
 ## 📷 Screenshots
 
+<img width="3492" height="2262" alt="Image" src="https://github.com/user-attachments/assets/254e4bf8-df5d-450e-a762-7647272100d2" />
+
 <img width="1800" alt="Sidebar" src="https://github.com/user-attachments/assets/6000662f-36ef-4558-b001-383c4e585f19" />
 
 <img width="1800" alt="Search" src="https://github.com/user-attachments/assets/f3829d0b-c06d-44d5-ac09-b165e24e18c3" />
